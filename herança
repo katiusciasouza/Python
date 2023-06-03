@@ -1,0 +1,31 @@
+from funcoes import calculaFgts
+from funcoes import calculaInss
+from funcoes import calculaHoraExtra
+from funcoes import calculoSalarioComHoraExtra
+from funcoes import calculoSalarioSemHoraExtra
+
+
+aliquotaInss = 0.075
+aliquotaFgts = 0.091
+cargaHoraMensalPadrao = 220
+
+salarioBruto = float(input('digite o salário bruto: '))
+descontos = float(input('Digite o valor dos descontos: '))
+qtddeHoraExtra = 0.0
+
+resposta = input('Digite [S] se existe Hora- Extra ou [N] se não Existe: ')
+
+if resposta == 's':
+    qtddeHoraExtra = float(input('Entre com a quantidade de horas - extras trabalhadas: '))
+    valorHoraExtra = calculaHoraExtra(salarioBruto, cargaHoraMensalPadrao, qtddeHoraExtra)
+        
+    #calculos
+valorInss = calculaInss(salarioBruto, aliquotaInss)
+valorFgts = calculaFgts(salarioBruto, aliquotaFgts)
+
+if resposta == 's':
+    resultado = calculoSalarioComHoraExtra(salarioBruto, descontos, valorInss, valorFgts, valorHoraExtra)
+    print(f'salario liquido com hora-extra: {resultado}')
+else:
+    resultado = calculoSalarioSemHoraExtra(salarioBruto, descontos, valorInss, valorFgts)
+    print(f'salario Liquido sem hora-extra: {resultado}')    

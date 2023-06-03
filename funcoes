@@ -1,0 +1,20 @@
+def calculoSalarioSemHoraExtra(salarioBruto, descontos, inss, fgts):
+    return salarioBruto - descontos - inss - fgts
+
+def calculoSalarioComHoraExtra(salarioBruto, descontos, inss, fgts, horaExtra):
+    return (salarioBruto - descontos - inss - fgts) + horaExtra
+
+def calculaInss(salarioBruto, aliquotaInss):
+    return salarioBruto * aliquotaInss
+
+def calculaFgts(salarioBruto, aliquotaFgts):
+    return salarioBruto * aliquotaFgts
+
+def calculaHoraExtra(salarioBruto, qtdCargaHorariaMensal, qtdHoraExtra):
+    return (salarioBruto / qtdCargaHorariaMensal) * qtdHoraExtra
+salarioBruto = float(input('digite o salário bruto: '))
+descontos = float(input('Digite o valor dos descontos: '))
+qtddeHoraExtra = 0.0
+aliquotaInss = 0.075
+aliquotaFgts = 0.091
+cargaHoraMensalPadrao = 220
